@@ -6,3 +6,4 @@ node_modules
 !.gitignore
 !README.md
 !DeclarationWebpackPlugin.min.js
+!package-lock.json
