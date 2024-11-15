@@ -5,5 +5,3 @@ node_modules
 !/src/**/*.*
 !.gitignore
 !README.md
-!tsconfig.json
-!webpack.config.js
