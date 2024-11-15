@@ -5,3 +5,4 @@ node_modules
 !/src/**/*.*
 !.gitignore
 !README.md
+!DeclarationWebpackPlugin.min.js
