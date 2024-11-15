@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "webpack": "^5.96.1"
+  },
+  "publishConfig": {
+    "@NicholasKoldys:registry": "https://npm.pkg.github.com"
   }
 }
