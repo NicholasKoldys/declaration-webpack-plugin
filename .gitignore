@@ -1,6 +1,9 @@
-
-/*
+*.*
+node_modules
 
 !package.json
-!/src/*
+!/src/**/*.*
 !.gitignore
+!README.md
+!tsconfig.json
+!webpack.config.js
