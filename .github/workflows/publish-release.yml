@@ -1,0 +1,30 @@
+name: Publish Zipped Release
+
+run-name: Deploy by @${{ github.actor }}
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Zip files
+        run: |
+          mkdir -p release
+          zip -r release/DeclarationWebpackPlugin.zip ./DeclarationWebpackPlugin.min.js
+
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          artifacts: release/DeclarationWebpackPlugin.zip
+          body: "zipped minifyied file"
