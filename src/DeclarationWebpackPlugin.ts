@@ -159,3 +159,7 @@ export class DeclarationWebpackPlugin {
     );
   }
 }
+
+export function isWebpackPlugin( str: string ): boolean {
+  return str === 'DeclarationWebpackPlugin';
+}

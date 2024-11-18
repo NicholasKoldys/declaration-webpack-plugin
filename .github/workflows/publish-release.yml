@@ -32,18 +32,27 @@ jobs:
   publish-gpr:
     needs: release
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
     permissions:
       packages: write
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: 20
+          version: 9
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
           registry-url: https://npm.pkg.github.com/
-      - run : npm ci
+          scope: '@nicholaskoldys'
+      - run : pnpm i --prod
 
       - name: Publish
-        run: npm publish
+        run: pnpm publish --provenance
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
