@@ -1,21 +1,31 @@
 {
   "name": "@nicholaskoldys/declaration-webpack-plugin",
-  "version": "1.1.0",
+  "author": "NicholasKoldys.dev",
+  "version": "1.2.0",
   "description": "",
   "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/NicholasKoldys/declaration-webpack-plugin.git"
   },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "webpack": "^5.96.1"
+  },
   "scripts": {
     "lock": "pnpm i --lockfile-only",
     "build": "pnpm exec esbuild --minify ./src/DeclarationWebpackPlugin.ts --outfile=DeclarationWebpackPlugin.min.js"
   },
-  "keywords": [],
-  "author": "NicholasKoldys.dev",
-  "license": "ISC",
   "publishConfig": {
     "@nicholaskoldys:registry": "https://npm.pkg.github.com"
   },
-  "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276"
+  "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276",
+  "types": "types.d.ts",
+  "bugs": "https://github.com/NicholasKoldys/declaration-webpack-plugin/issues",
+  "homepage": "https://github.com/NicholasKoldys/declaration-webpack-plugin",
+  "keywords": [
+    "webpack",
+    "declaration",
+    "bundler plugin"
+  ]
 }
