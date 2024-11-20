@@ -1,9 +1,11 @@
 *.*
 node_modules
 
-!package.json
+!/lib/**/*.*
 !/src/**/*.*
+
 !.gitignore
-!README.md
-!DeclarationWebpackPlugin.min.js
+!package.json
 !pnpm-lock.yaml
+!README.md
+!tsconfig.json

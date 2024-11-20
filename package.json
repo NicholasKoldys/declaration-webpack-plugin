@@ -1,7 +1,7 @@
 {
   "name": "@nicholaskoldys/declaration-webpack-plugin",
   "author": "NicholasKoldys.dev",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "type": "module",
   "repository": {
@@ -10,17 +10,25 @@
   },
   "devDependencies": {
     "esbuild": "^0.24.0",
-    "webpack": "^5.96.1"
+    "webpack": "^5.96.1",
+    "typescript": "^5.6.3"
   },
   "scripts": {
     "lock": "pnpm i --lockfile-only",
-    "build": "pnpm exec esbuild --minify ./src/DeclarationWebpackPlugin.ts --outfile=DeclarationWebpackPlugin.min.js"
+    "build:src_lib": "pnpm exec tsc --declaration --outDir ./src/lib --declarationMap --emitDeclarationOnly",
+    "build:ts": "pnpm exec tsc -p ./tsconfig.json",
+    "build:minify": "pnpm exec esbuild --minify \"./src/DeclarationWebpackPlugin.ts\" --outfile=\"./lib/DeclarationWebpackPlugin.min.js\"",
+    "build": "pnpm run build:ts && pnpm run build:minify"
   },
   "publishConfig": {
     "@nicholaskoldys:registry": "https://npm.pkg.github.com"
   },
+  "files": [
+    "./lib/DeclarationWebpackPlugin.min.js",
+    "./lib/DeclarationWebpackPlugin.d.ts"
+  ],
   "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276",
-  "types": "types.d.ts",
+  "types": "./lib/DeclarationWebpackPlugin.d.ts",
   "bugs": "https://github.com/NicholasKoldys/declaration-webpack-plugin/issues",
   "homepage": "https://github.com/NicholasKoldys/declaration-webpack-plugin",
   "keywords": [

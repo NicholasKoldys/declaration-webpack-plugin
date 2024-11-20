@@ -1,4 +1,4 @@
-name: Publish Zipped Release
+name: Release and Publish pkg
 
 run-name: Deploy by @${{ github.actor }}
 
@@ -18,9 +18,9 @@ jobs:
       - name: Zip files
         run: |
           mkdir -p release
-          zip -r release/DeclarationWebpackPlugin.zip ./DeclarationWebpackPlugin.min.js
+          zip -r release/DeclarationWebpackPlugin.zip ./lib
 
-      - name: Create Release
+      - name: Release zip
         id: create_release
         uses: ncipollo/release-action@v1
         with:
@@ -39,11 +39,12 @@ jobs:
       packages: write
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        # with:
-          # version: 9.x.x
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", 
+    "module": "ESNext", 
+    "moduleResolution": "Node", 
+    "lib": [ "ESNext", "DOM" ],
+    "rootDir": "./src", 
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "outDir": "./build",
+    "declaration": true,
+    "declarationDir": "lib",
+    "strict": true,
+  },
+  "exclude": [
+    "node_modules",
+    "./build/**/*.*",
+    "./lib/**/*.*",
+  ]
+}
