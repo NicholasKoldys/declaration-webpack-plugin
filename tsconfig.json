@@ -12,12 +12,16 @@
     },
     "outDir": "./build",
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": "./dist",
     "strict": true,
+    "types": [ "node" ]
   },
+  "include": [
+    "./src/*"
+  ],
   "exclude": [
     "node_modules",
     "./build/**/*.*",
-    "./lib/**/*.*",
+    "./dist/**/*.*",
   ]
 }
