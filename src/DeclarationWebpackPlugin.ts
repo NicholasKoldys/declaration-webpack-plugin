@@ -1,4 +1,4 @@
-import { Compiler, Compilation } from "webpack";
+import type { Compiler, Compilation } from "webpack";
 
 const PLUGIN_NAME = 'DeclarationWebpackPlugin';
 

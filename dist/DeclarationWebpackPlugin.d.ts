@@ -1,3 +1,4 @@
+import type { Compiler } from "webpack";
 export declare enum moduleType {
     commonJS = "commonJS",
     esm = "esm",
@@ -18,7 +19,7 @@ export declare class DeclarationWebpackPlugin {
     moduleType: moduleType;
     isFileCommented: boolean;
     constructor(options?: any);
-    apply(compiler: any): void;
+    apply(compiler: Compiler): void;
     private generateCombinedDeclaration;
 }
 export declare function isWebpackPlugin(str: string): boolean;
